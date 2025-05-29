@@ -1,6 +1,6 @@
 import { db } from "../db";
 import { publicProcedure, router } from "../trpc";
-// import { z } from "zod";
+import { z } from "zod";
 
 export const userRouter = router({
   userList: publicProcedure.query(async () => {
@@ -10,13 +10,13 @@ export const userRouter = router({
 
   userById: publicProcedure
     .input(
-      // z.string()
-      (value): string => {
-        if (typeof value === "string") {
-          return value;
-        }
-        throw new Error("Input is not a string");
-      }
+      z.string()
+      // (value): string => {
+      //   if (typeof value === "string") {
+      //     return value;
+      //   }
+      //   throw new Error("Input is not a string");
+      // }
     )
     .query(async (opts) => {
       const { input } = opts;
@@ -26,21 +26,20 @@ export const userRouter = router({
 
   userCreate: publicProcedure
     .input(
-      // z.object({ name: z.string(), townName: z.string()})
-
-      (value): { name: string; townName: string } => {
-        if (
-          typeof value === "object" &&
-          value !== null &&
-          "name" in value &&
-          "townName" in value &&
-          typeof value.name === "string" &&
-          typeof value.townName === "string"
-        ) {
-          return value as { name: string; townName: string };
-        }
-        throw new Error("Input is not a valid value");
-      }
+      z.object({ name: z.string(), townName: z.string()})
+      // (value): { name: string; townName: string } => {
+      //   if (
+      //     typeof value === "object" &&
+      //     value !== null &&
+      //     "name" in value &&
+      //     "townName" in value &&
+      //     typeof value.name === "string" &&
+      //     typeof value.townName === "string"
+      //   ) {
+      //     return value as { name: string; townName: string };
+      //   }
+      //   throw new Error("Input is not a valid value");
+      // }
     )
 
     .mutation(async (opts) => {

@@ -41,3 +41,19 @@ npx ts-node client/fetch/getUserlist.ts
 npx ts-node client/fetch/createUser.ts
 npx ts-node client/fetch/serchUser.ts
 ```
+
+## OpenAPI形式へ
+ライブラリの追加
+```
+npm install trpc-openapi --legacy-peer-deps
+```
+
+```
+npm install --save-dev @types/node --legacy-peer-deps
+npm install zod --legacy-peer-deps
+```
+
+実行する
+```
+npx ts-node client/fetch/goodHello.ts
+```

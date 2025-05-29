@@ -30,7 +30,8 @@ export async function fetchAction({
 
     if (response.ok) {
       const user = await response.json();
-      console.log(responseMessage, user.result.data);
+      // console.log(responseMessage, user.result.data);
+      console.log(responseMessage, user.greeting);
     } else {
       console.error("Failed to fetch user data.");
     }
