@@ -34,3 +34,10 @@ npx ts-node client/badHello.ts
 ```
 TRPCClientError: UNAUTHORIZEDちゃんとエラーが返ってくる
 
+## エンドポイントについて
+さっきまでと同じ動作をする
+```
+npx ts-node client/fetch/getUserlist.ts
+npx ts-node client/fetch/createUser.ts
+npx ts-node client/fetch/serchUser.ts
+```
