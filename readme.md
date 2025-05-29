@@ -20,3 +20,17 @@ npx ts-node client/serchUser.ts
 ```
 結果が返ってくる
 
+## ミドルウェアの追加
+header に authorization：Good が付与されていたら処理が走るといった簡易的な認証機能を追加
+
+認証情報付きで作成
+```
+npx ts-node client/goodHello.ts
+```
+
+認証失敗の確認
+```
+npx ts-node client/badHello.ts
+```
+TRPCClientError: UNAUTHORIZEDちゃんとエラーが返ってくる
+
